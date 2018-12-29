@@ -48,9 +48,15 @@ i {
     cursor: pointer;
 }
 
+
 i:hover {
     background-color: rgba(0, 0, 255, 0.404);
 }
+
+#id-col {
+    width: 60px;
+}
+
 
 #tableSerchRow {
     display: none;

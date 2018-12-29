@@ -14,9 +14,6 @@ var user = { id: '', name: '', address: '', city: '', pincod: '', country: '' }
 
 function validationOnInput() {
 
-
-
-
     document.getElementById('paginat').style.display = 'block'
     var getName = document.getElementById('inputName')
     var getAddress = document.getElementById('inputAddress')
@@ -67,7 +64,6 @@ function validationOnInput() {
     this.PinCode = this.user.pincod;
 
     userObj = Object.assign({}, user);
-    // console.log(userObj)
 
     if (this.Name != '' && this.Address != '' && this.City != '' && this.PinCode != '' && this.Country != '') {
 
@@ -75,7 +71,6 @@ function validationOnInput() {
         var tableRows = document.getElementById("myTable").rows
         document.getElementById('userNumber').textContent = tableRows.length;
         Users.push(userObj);
-        // Users.push(user)
 
         addRowInTable()
         console.log(this.user);
@@ -86,7 +81,6 @@ function validationOnInput() {
         this.user.city = ''
         this.user.country = ''
         this.user.pincod = ''
-
 
         this.Name = ''
         this.Address = ''
@@ -127,10 +121,10 @@ function addRowInTable() {
 
 function deletRow(r) {
     indexOfTableRow = r.parentNode.parentNode.rowIndex;
-    var txt;
+
     var r = confirm("Do you want to delet this user" + indexOfTableRow);
     if (r == true) {
-        
+
         delRow = indexOfTableRow
         document.getElementById("myTable").deleteRow(indexOfTableRow);
         counter--
@@ -150,8 +144,6 @@ function deletRow(r) {
 
         document.getElementById('userNumber').textContent = tableRows.length - 1;
     }
-
-
 }
 
 function alertInfo(row) {
@@ -170,9 +162,6 @@ function ShowRowForEdit(row) {
     var elem = row.parentNode.parentNode.rowIndex;
     console.log(elem)
     console.log(row.parentNode.parentNode)
-
-    // var icon = document.getElementById('editeble' + user.id)
-    // icon.classList.add('fa-save')
 
     var colName = row.parentNode.parentNode.childNodes[1]
     var colAddess = row.parentNode.parentNode.childNodes[2]
@@ -207,7 +196,6 @@ function ShowRowForEdit(row) {
             console.log(UserObject)
         }
     }
-
 
     document.getElementById("editeble" + UserObject.id).style.display = "none";
     document.getElementById("saveData" + UserObject.id).style.display = "block";
