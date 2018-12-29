@@ -15,7 +15,7 @@ form {
     width: 200px;
     height: 50px;
     position: absolute;
-    bottom: -50px;
+    bottom: -60px;
 }
 
 .not-valid {
@@ -45,6 +45,11 @@ form {
 
 i {
     float: left;
+    cursor: pointer;
+}
+
+i:hover {
+    background-color: rgba(0, 0, 255, 0.404);
 }
 
 #tableSerchRow {

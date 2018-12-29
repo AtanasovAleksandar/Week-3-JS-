@@ -127,26 +127,31 @@ function addRowInTable() {
 
 function deletRow(r) {
     indexOfTableRow = r.parentNode.parentNode.rowIndex;
-    
+    var txt;
+    var r = confirm("Do you want to delet this user" + indexOfTableRow);
+    if (r == true) {
+        
+        delRow = indexOfTableRow
+        document.getElementById("myTable").deleteRow(indexOfTableRow);
+        counter--
 
-    delRow = indexOfTableRow
-    document.getElementById("myTable").deleteRow(indexOfTableRow);
-    counter--
+        if (counter < 1) {
+            document.getElementById('paginat').style.display = 'none'
+            document.getElementById('numOfUsers').style.display = 'none'
+        }
 
-    if (counter < 1) {
-        document.getElementById('paginat').style.display = 'none'
-        document.getElementById('numOfUsers').style.display = 'none'
+        var tableRows = document.getElementById("myTable").rows
+        console.log(tableRows)
+        for (var i = indexOfTableRow; i < tableRows.length; i++) {
+            var el = tableRows[i].cells[0].innerText
+            console.log(el)
+            tableRows[i].cells[0].innerText = el - 1
+        }
+
+        document.getElementById('userNumber').textContent = tableRows.length - 1;
     }
-    
-    var tableRows = document.getElementById("myTable").rows
-    console.log(tableRows)
-    for (var i = indexOfTableRow; i < tableRows.length; i++) {
-     var el = tableRows[i].cells[0].innerText
-        console.log(el)
-        tableRows[i].cells[0].innerText = el-1
-    }
 
-    document.getElementById('userNumber').textContent = tableRows.length - 1;
+
 }
 
 function alertInfo(row) {
